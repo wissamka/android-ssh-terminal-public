@@ -54,7 +54,7 @@ with tempfile.TemporaryDirectory(prefix='sshterm-mina-tests-') as scratch:
              'LifecycleResources', 'PortForwardManager', 'MinaBackend', 'MinaJumpTransport', 'MinaSigning',
              'SigningAuthorization', 'InteractiveChallenges', 'TofuKnownHostsVerifier', 'KnownHostsFileStore']
     sources = [source_root / 'ssh' / f'{name}.kt' for name in names]
-    sources += [source_root / 'keys' / f'{name}.kt' for name in ['KeystoreKeyProvider', 'DeferredKeyProvider']]
+    sources += [source_root / 'keys' / f'{name}.kt' for name in ['KeystoreKeyProvider', 'DeferredKeyProvider', 'KeyAuthenticationPolicy']]
     test_names = ['SshEngineProtocolTest', 'MinaBackendProtocolTest', 'MinaSecurityRegressionTest', 'SigningAuthorizationTest']
     sources += [PROJECT / 'app/src/test/java/dev/wissam/sshterm/core/ssh' / f'{name}.kt' for name in test_names]
     sources += list((PROJECT / "app/src/protocolTest/java").rglob("*.kt"))
