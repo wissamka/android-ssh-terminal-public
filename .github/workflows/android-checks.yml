@@ -1,0 +1,38 @@
+name: Android checks
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+concurrency:
+  group: android-checks-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961 # v5
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Install compile SDK
+        run: |
+          sdk_manager="${ANDROID_HOME:?}/cmdline-tools/latest/bin/sdkmanager"
+          test -x "$sdk_manager"
+          "$sdk_manager" 'platforms;android-37.0' 'build-tools;36.0.0'
+      - name: Run full Android lint
+        run: >-
+          ./gradlew -PauditInstall=true
+          :app:lintDebug :app:lintRelease
+          :terminal-emulator:lintDebug :terminal-emulator:lintRelease
+          :terminal-view:lintDebug :terminal-view:lintRelease
+          --console=plain
+      - name: Test production logic and compile instrumented tests
+        run: ./gradlew -PauditInstall=true :app:testDebugUnitTest :terminal-emulator:testDebugUnitTest :app:assembleDebug :app:assembleRelease :app:compileDebugAndroidTestKotlin --console=plain
+      - name: Verify owner access is absent from release
+        run: grep -q 'OWNER_PRO = false;' app/build/generated/source/buildConfig/release/dev/wissam/sshterm/BuildConfig.java

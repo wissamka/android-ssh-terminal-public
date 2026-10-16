@@ -1,0 +1,43 @@
+name: Dependency monitoring
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '23 8 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: dependency-monitoring-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  submit-dependencies:
+    # The write-capable job never executes pull-request or fork code.
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write # Required by GitHub's dependency submission API.
+    steps:
+      - name: Check out main
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Set up Java
+        uses: actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961 # v5
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Install compile SDK
+        run: '"${ANDROID_HOME:?}/cmdline-tools/latest/bin/sdkmanager" "platforms;android-37.0" "build-tools;36.0.0"'
+      - name: Resolve and submit direct and transitive dependencies
+        uses: gradle/actions/dependency-submission@0723195856401067f7a2779048b490ace7a47d7c # v5.0.2
+        with:
+          dependency-graph: generate-and-submit
+          additional-arguments: --no-configuration-cache
+          # A failed resolution/submission must fail the job, never silently pass.
+          dependency-graph-continue-on-failure: false

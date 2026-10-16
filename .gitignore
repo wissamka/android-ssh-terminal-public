@@ -1,0 +1,24 @@
+*.iml
+.gradle/
+build/
+local.properties
+.idea/
+.DS_Store
+captures/
+.externalNativeBuild/
+.cxx/
+*.keystore
+!debug.keystore
+*.jks
+keystore.properties
+
+.kotlin/
+
+# Local agent settings, credentials and exported private material are never source artifacts.
+.claude/
+.codex/
+.gstack/
+.env
+.env.*
+*.pem
+*.key

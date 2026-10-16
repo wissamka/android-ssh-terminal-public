@@ -1,0 +1,75 @@
+# Seed dictionary: common Linux/VPS-admin commands so autocomplete is useful on first launch.
+# One command per line; ranked below any command the user has actually run.
+ls -la
+cd ..
+df -h
+du -sh *
+free -h
+htop
+top
+uptime
+whoami
+ip a
+ss -tulpn
+ping -c 4 8.8.8.8
+curl -I https://
+systemctl status
+systemctl restart
+systemctl stop
+systemctl start
+systemctl enable --now
+journalctl -f
+journalctl -u
+journalctl -xe
+tail -f /var/log/syslog
+tail -f /var/log/nginx/error.log
+tail -f /var/log/nginx/access.log
+docker ps
+docker ps -a
+docker logs -f
+docker compose up -d
+docker compose down
+docker compose logs -f
+docker exec -it
+docker images
+docker system prune -af
+git status
+git pull
+git log --oneline -20
+git diff
+git add -A && git commit -m ""
+apt update && apt upgrade -y
+apt install
+apt autoremove -y
+dnf update -y
+crontab -e
+crontab -l
+chmod +x
+chown -R
+find / -name
+grep -rn
+ps aux | grep
+kill -9
+pkill -f
+nano /etc/
+vim /etc/
+cat /etc/os-release
+uname -a
+lsblk
+mount
+ufw status
+ufw allow
+fail2ban-client status
+certbot renew --dry-run
+nginx -t && systemctl reload nginx
+tmux new -s main
+tmux attach -t main
+tmux ls
+screen -r
+scp
+rsync -avz
+tar -xzvf
+tar -czvf
+wget
+sudo su -
+exit

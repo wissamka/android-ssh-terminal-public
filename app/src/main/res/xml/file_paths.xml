@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <!-- Transient exported private keys live here; shared via a per-use content:// grant. -->
+    <cache-path name="exports" path="exports/" />
+</paths>

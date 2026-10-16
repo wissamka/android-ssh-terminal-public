@@ -1,0 +1,68 @@
+[
+  {
+    "group": "org.apache.sshd",
+    "artifact": "sshd-core",
+    "version": "2.19.0",
+    "sha256": "7215350bf71d95a34494f823a7451f966a2995b59e99fdf8ee9cbd63ef78cdb3"
+  },
+  {
+    "group": "org.apache.sshd",
+    "artifact": "sshd-common",
+    "version": "2.19.0",
+    "sha256": "41cef234f894e435ae2141e24baa25baf238a273cd28c6bbadcf830b1b2d68cb"
+  },
+  {
+    "group": "com.hierynomus",
+    "artifact": "sshj",
+    "version": "0.40.0",
+    "sha256": "a6a5533f6580e0418dfcacbb5396680186698585c325fa950c788e749f24d1e2"
+  },
+  {
+    "group": "com.hierynomus",
+    "artifact": "asn-one",
+    "version": "0.6.0",
+    "sha256": "e4f70fd92849b52240048b8ebace0c9a17d3bb7b9c882b3c7778cec3458495f5"
+  },
+  {
+    "group": "org.bouncycastle",
+    "artifact": "bcprov-jdk18on",
+    "version": "1.86",
+    "sha256": "2af190b300cbb0b35e248ccf5f4a06b6072030aeb3da7a98ec73abe5b4cb371f"
+  },
+  {
+    "group": "org.bouncycastle",
+    "artifact": "bcpkix-jdk18on",
+    "version": "1.86",
+    "sha256": "8d8b41a4b149bdae8d331f059a578870954d1e3ff29f8269a9eb3ee19a7e4ef7"
+  },
+  {
+    "group": "org.bouncycastle",
+    "artifact": "bcutil-jdk18on",
+    "version": "1.86",
+    "sha256": "1c268e15f785aafb1e4670d8d6e5f856f69475e96c162dadcd1ff9b350e9139f"
+  },
+  {
+    "group": "org.slf4j",
+    "artifact": "slf4j-api",
+    "version": "2.0.17",
+    "sha256": "7b751d952061954d5abfed7181c1f645d336091b679891591d63329c622eb832"
+  },
+  {
+    "group": "org.slf4j",
+    "artifact": "slf4j-nop",
+    "version": "2.0.17",
+    "sha256": "3716f83649ec66161a2edefd4f49df34d1dd1c51cdcf941996c6987260f0a829"
+  },
+  {
+    "group": "junit",
+    "artifact": "junit",
+    "version": "4.13.2",
+    "sha256": "8e495b634469d64fb8acfa3495a065cbacc8a0fff55ce1e31007be4c16dc57d3"
+  },
+  {
+    "group": "org.hamcrest",
+    "artifact": "hamcrest-core",
+    "version": "1.3",
+    "sha256": "66fdef91e9739348df7a096aa384a5685f4e875584cce89386a7a47251c4d8e9"
+  }
+]
