@@ -151,7 +151,7 @@ dependencies {
     implementation(libs.hilt.navigation.compose)
 
     implementation(libs.sshj)
-    implementation("org.apache.sshd:sshd-core:2.19.0")
+    implementation("org.apache.sshd:sshd-core:2.20.0")
     implementation(libs.bouncycastle.prov)
     implementation(libs.bouncycastle.pkix)
     implementation(libs.slf4j.api)
@@ -161,7 +161,7 @@ dependencies {
     implementation(libs.androidx.datastore.preferences)
 
     testImplementation(libs.junit)
-    testImplementation("org.apache.sshd:sshd-core:2.19.0")
+    testImplementation("org.apache.sshd:sshd-core:2.20.0")
 
     androidTestImplementation(platform(libs.compose.bom))
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
